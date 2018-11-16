@@ -1,0 +1,56 @@
+module graphic_demo
+(
+
+    input CLOCK, RESET,
+
+	 // SDRAM
+	 output S_CLK,
+	 output S_CKE, S_NCS, S_NRAS, S_NCAS, S_NWE,
+	 output [12:0]S_A, 
+    output [1:0]S_BA,
+    output [1:0]S_DQM,
+    inout [15:0]S_DQ,
+	 
+	 // VGA
+	 output VGA_HSYNC, VGA_VSYNC,
+	 output [15:0]VGAD
+
+);
+    wire C1,C2,C3;
+	 
+	 pll_module	U0
+	 (
+	    .inclk0 ( CLOCK ),
+	    .c0 ( C1 ), // 100Mhz, -180 degeree
+	    .c1 ( C2 ), // 100Mhz, SDRAM
+	    .c2 ( C3 )  // 25Mhz, VGA
+	 );
+	 
+	 wire [2:0]DoneU1;
+	 wire [63:0]DataU1;
+
+	 vga_submod U2
+	 (
+	     .RESET( RESET ),
+	     .S_CLK ( S_CLK ),
+		  .S_CKE( S_CKE ),
+		  .S_NCS( S_NCS ),
+		  .S_NRAS( S_NRAS ),
+		  .S_NCAS( S_NCAS ),
+		  .S_NWE( S_NWE ),
+		  .S_A( S_A ),
+		  .S_BA( S_BA ),
+		  .S_DQM( S_DQM ),
+		  .S_DQ( S_DQ ),
+		  .VGA_HSYNC( VGA_HSYNC ), 
+	     .VGA_VSYNC( VGA_VSYNC ) ,
+		  .iClock( { CLOCK,CLOCK_SDRAM,CLOCK_VGA } ),
+		  .VGAD( VGAD ),
+		  .iCall( {1'b0,isCall} ), // [1]Write , [0]Read
+	     .oDone( DoneU1 ),        
+		  .iAddr( SDRAM_Addr ),       // [21:0]
+        .iData( { 48'd0, SDRAM_Data} ),       // [63:0]
+		  .oData( DataU1 )
+	 );
+	 
+endmodule

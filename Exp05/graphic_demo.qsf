@@ -1,0 +1,195 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+# Date created = 12:11:44  September 10, 2014
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		graphic_demo_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE6F17C8
+set_global_assignment -name TOP_LEVEL_ENTITY graphic_demo
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:11:44  SEPTEMBER 10, 2014"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_location_assignment PIN_E1 -to CLOCK
+set_location_assignment PIN_E15 -to RESET
+set_location_assignment PIN_G1 -to TXD
+set_location_assignment PIN_R5 -to S_DQ[0]
+set_location_assignment PIN_T4 -to S_DQ[1]
+set_location_assignment PIN_T3 -to S_DQ[2]
+set_location_assignment PIN_R3 -to S_DQ[3]
+set_location_assignment PIN_T2 -to S_DQ[4]
+set_location_assignment PIN_R1 -to S_DQ[5]
+set_location_assignment PIN_P2 -to S_DQ[6]
+set_location_assignment PIN_P1 -to S_DQ[7]
+set_location_assignment PIN_R13 -to S_DQ[8]
+set_location_assignment PIN_T13 -to S_DQ[9]
+set_location_assignment PIN_R12 -to S_DQ[10]
+set_location_assignment PIN_T12 -to S_DQ[11]
+set_location_assignment PIN_T10 -to S_DQ[12]
+set_location_assignment PIN_R10 -to S_DQ[13]
+set_location_assignment PIN_T11 -to S_DQ[14]
+set_location_assignment PIN_R11 -to S_DQ[15]
+set_location_assignment PIN_T8 -to S_A[0]
+set_location_assignment PIN_P9 -to S_A[1]
+set_location_assignment PIN_T9 -to S_A[2]
+set_location_assignment PIN_R9 -to S_A[3]
+set_location_assignment PIN_L16 -to S_A[4]
+set_location_assignment PIN_L15 -to S_A[5]
+set_location_assignment PIN_N16 -to S_A[6]
+set_location_assignment PIN_N15 -to S_A[7]
+set_location_assignment PIN_P16 -to S_A[8]
+set_location_assignment PIN_P15 -to S_A[9]
+set_location_assignment PIN_R8 -to S_A[10]
+set_location_assignment PIN_R16 -to S_A[11]
+set_location_assignment PIN_T15 -to S_A[12]
+set_location_assignment PIN_R4 -to S_CLK
+set_location_assignment PIN_R7 -to S_BA[0]
+set_location_assignment PIN_T7 -to S_BA[1]
+set_location_assignment PIN_T5 -to S_NCAS
+set_location_assignment PIN_R14 -to S_CKE
+set_location_assignment PIN_R6 -to S_NRAS
+set_location_assignment PIN_N1 -to S_NWE
+set_location_assignment PIN_T6 -to S_NCS
+set_location_assignment PIN_T14 -to S_DQM[1]
+set_location_assignment PIN_N2 -to S_DQM[0]
+set_location_assignment PIN_C15 -to VGAD[0]
+set_location_assignment PIN_B16 -to VGAD[1]
+set_location_assignment PIN_A15 -to VGAD[2]
+set_location_assignment PIN_B14 -to VGAD[3]
+set_location_assignment PIN_A14 -to VGAD[4]
+set_location_assignment PIN_B13 -to VGAD[5]
+set_location_assignment PIN_A13 -to VGAD[6]
+set_location_assignment PIN_B12 -to VGAD[7]
+set_location_assignment PIN_A12 -to VGAD[8]
+set_location_assignment PIN_B11 -to VGAD[9]
+set_location_assignment PIN_A11 -to VGAD[10]
+set_location_assignment PIN_B10 -to VGAD[11]
+set_location_assignment PIN_A10 -to VGAD[12]
+set_location_assignment PIN_B9 -to VGAD[13]
+set_location_assignment PIN_A9 -to VGAD[14]
+set_location_assignment PIN_C8 -to VGAD[15]
+set_location_assignment PIN_C16 -to VGA_HSYNC
+set_location_assignment PIN_D15 -to VGA_VSYNC
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ENABLE_SIGNALTAP ON
+set_global_assignment -name USE_SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "vga_submod:U2|CY[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "vga_submod:U2|CY[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "vga_submod:U2|CY[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to "vga_submod:U2|CY[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "vga_submod:U2|CY[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to "vga_submod:U2|CY[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to "vga_submod:U2|CY[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to "vga_submod:U2|CY[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to "vga_submod:U2|CY[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to "vga_submod:U2|CY[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to "vga_submod:U2|isL2H" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to "vga_submod:U2|CY[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "vga_submod:U2|CY[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "vga_submod:U2|CY[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to "vga_submod:U2|CY[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to "vga_submod:U2|CY[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to "vga_submod:U2|CY[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to "vga_submod:U2|CY[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to "vga_submod:U2|CY[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to "vga_submod:U2|CY[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to "vga_submod:U2|CY[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to "vga_submod:U2|isL2H" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_RAM_BLOCK_TYPE=AUTO" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=11" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_INFO=805334528" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_POWER_UP_TRIGGER=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ATTRIBUTE_MEM_MODE=OFF" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_FLOW_USE_GENERATED=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_BITS=11" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_BUFFER_FULL_STOP=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_CURRENT_RESOURCE_WIDTH=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLED=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=basic,1," -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to "pll_module:U0|c0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=0000000000000000000000000000000000000000000000000000000000" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=58" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=2048" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=2048" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to "vga_submod:U2|sdram_basemod:U1|oData[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to "vga_submod:U2|sdram_basemod:U1|oData[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to "vga_submod:U2|sdram_basemod:U1|oData[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to "vga_submod:U2|sdram_basemod:U1|oData[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[15] -to "vga_submod:U2|sdram_basemod:U1|oData[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[16] -to "vga_submod:U2|sdram_basemod:U1|oData[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[17] -to "vga_submod:U2|sdram_basemod:U1|oData[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[18] -to "vga_submod:U2|sdram_basemod:U1|oData[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[19] -to "vga_submod:U2|sdram_basemod:U1|oData[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[20] -to "vga_submod:U2|sdram_basemod:U1|oData[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[21] -to "vga_submod:U2|sdram_basemod:U1|oData[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[22] -to "vga_submod:U2|sdram_basemod:U1|oData[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[23] -to "vga_submod:U2|sdram_basemod:U1|oData[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to "vga_submod:U2|sdram_basemod:U1|oData[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to "vga_submod:U2|sdram_basemod:U1|oData[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to "vga_submod:U2|sdram_basemod:U1|oData[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to "vga_submod:U2|sdram_basemod:U1|oEn" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=28" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=50362" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=57450" -section_id auto_signaltap_0
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE graphic_submod/sdram_basemod/sdram_funcmod.v
+set_global_assignment -name VERILOG_FILE graphic_submod/sdram_basemod/sdram_ctrlmod.v
+set_global_assignment -name VERILOG_FILE graphic_submod/sdram_basemod/sdram_basemod.v
+set_global_assignment -name VERILOG_FILE graphic_submod/vga_basemod/vga_savemod.v
+set_global_assignment -name VERILOG_FILE graphic_submod/vga_basemod/vga_funcmod.v
+set_global_assignment -name VERILOG_FILE graphic_submod/vga_basemod/vga_basemod.v
+set_global_assignment -name VERILOG_FILE graphic_submod/graphic_submod.v
+set_global_assignment -name VERILOG_FILE pll_module/pll_module.v
+set_global_assignment -name QIP_FILE pll_module/pll_module.qip
+set_global_assignment -name VERILOG_FILE graphic_demo.v
+set_global_assignment -name CDF_FILE output_files/Chain2.cdf
+set_global_assignment -name SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name CDF_FILE output_files/Chain3.cdf
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name SMART_RECOMPILE ON
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp

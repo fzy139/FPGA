@@ -1,0 +1,115 @@
+module graphic_submod
+(
+    input RESET,
+	 
+	 output S_CLK,
+	 output S_CKE, S_NCS, S_NRAS, S_NCAS, S_NWE,
+	 output [12:0]S_A, 
+    output [1:0]S_BA,
+    output [1:0]S_DQM,
+    inout [15:0]S_DQ,
+	 
+	 output VGA_HSYNC, VGA_VSYNC,
+	 output [15:0]VGAD,
+	 
+	 input [2:0]iClock,   // Main Clock 100Mhz -180 deg, sdram_clock 100Mhz, vga_clock 25Mhz;
+	 input [1:0]iCall,    // [1]Write, [0]Read
+	 output [1:0]oDone,
+	 input [23:0]iAddr,
+	 input [15:0]iData,
+	 output [15:0]oData
+);
+    wire EnU1;
+	 wire [2:0]DoneU1;
+	 wire [15:0]DataU1;
+
+    sdram_basemod U1
+	 (
+	     .RESET( RESET ),
+		  .S_CLK ( S_CLK ),
+		  .S_CKE( S_CKE ),
+		  .S_NCS( S_NCS ),
+		  .S_NRAS( S_NRAS ),
+		  .S_NCAS( S_NCAS ),
+		  .S_NWE( S_NWE ),
+		  .S_A( S_A ),
+		  .S_BA( S_BA ),
+		  .S_DQM( S_DQM ),
+		  .S_DQ( S_DQ ),
+		  .iClock( iClock[2:1] ),  // [1]Main Clock, [0]SDRAM Clock
+	     .iCall( isCall ? { isCall,2'b00 } : {1'b0,iCall} ),  // [2]Gread, [1]Write, [0]Read
+	     .oDone( DoneU1 ),  // [2] to Core, [1:0] to top
+		  .oEn( EnU1 ),       // > U2
+		  .iAddr( iAddr ), 
+		  .iAddrPage( D1 ),
+        .iData( iData ),
+		  .oData( DataU1 )   
+	 );
+	 
+	 wire isDone = DoneU1[2];
+	 assign oDone = DoneU1[1:0];   // top
+	 assign oData = DataU1;        // top
+	 
+	 /************/ 
+	 
+	 wire [10:0]TagU2;
+
+    vga_basemod U2
+	 (
+		 .RESET( RESET ),
+		 .iClock( {iClock[2],iClock[0]} ), // Main Clock , Vga Clock
+		 .iEn( EnU1 ),
+		 .iData( DataU1[15:0] ),
+		 .VGA_HSYNC( VGA_HSYNC ), 
+	    .VGA_VSYNC( VGA_VSYNC ),
+       .VGAD( VGAD ),
+		 .oTag( TagU2 )
+	 );
+	 
+	 /************/ // Filter Tag Signal from VGA basemod
+	 
+	 reg [10:0]F2,F1;
+	 always @ ( posedge iClock[2] or negedge RESET ) 
+	     if( !RESET ) 
+		      { F2,F1 } <= { 10'd0, 10'd0 } ; 
+		  else 
+		      { F2,F1 } <= { F1,TagU2 };
+				
+	 /************/ // Record buffer warning and Clean Y
+				
+	  wire isL2H = (F2[10] == 0 && F1[10] == 1);
+	  reg isA;
+	  reg [9:0]CY;
+	  
+	  always @ ( posedge iClock[2] or negedge RESET )
+	      if( !RESET )
+			    begin isA <= 1'b0; CY <= 10'd0; end
+			else if( isL2H )
+			    begin isA <= ~isA; CY <= F2[9:0]; end
+
+	  /************/ // Core, Read Page
+		      
+	  reg [3:0]i;
+	  reg isB,isCall;
+	  reg [23:0]D1;
+	  
+	  always @ ( posedge iClock[2] or negedge RESET )
+	      if( !RESET )
+			    begin
+				     i <= 4'd0;
+					  { isB,isCall } <= { 1'b0,1'b0 };
+					  { D1 } <= { 24'd0 };
+				 end
+		   else
+			    case( i )
+				 
+				     0:
+					  if( isA!=isB ) begin isB <= isA; i <= i + 1'b1; end
+					  
+					  1:
+					  if( isDone ) begin isCall <= 1'b0; i <= 4'd0; end
+					  else begin isCall <= 1'b1; D1 <= { 5'd0,CY,9'd0}; end
+					  
+				 endcase
+
+endmodule
